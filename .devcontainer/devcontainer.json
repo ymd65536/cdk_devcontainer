@@ -1,0 +1,28 @@
+{
+    "name": "cdk-container",
+    "dockerFile": "Dockerfile",
+    "postCreateCommand": "sh .devcontainer/postCreateCommand.sh",
+    "runArgs": [
+        "--init",
+        "--privileged"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.flake8",
+                "ms-python.vscode-pylance",
+                "amazonwebservices.aws-toolkit-vscode",
+                "ms-vscode.vscode-typescript-next",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "VisualStudioExptTeam.intellicode-api-usage-examples"
+            ]
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.aws,target=/home/node/.aws,type=bind",
+        "source=${localEnv:HOME}/.rd,target=/home/node/.rd,type=bind"
+    ]
+}
